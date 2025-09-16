@@ -16,7 +16,8 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
-        .package(url: "https://github.com/apple/swift-markdown", from: "0.6.0")
+        .package(url: "https://github.com/apple/swift-markdown", from: "0.6.0"),
+        .package(url: "https://github.com/stencilproject/Stencil.git", from: "0.15.1")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -24,7 +25,8 @@ let package = Package(
         .target(
             name: "MacStaticCore",
             dependencies: [
-                .product(name: "Markdown", package: "swift-markdown")
+                .product(name: "Markdown", package: "swift-markdown"),
+                .product(name: "Stencil", package: "Stencil")
             ]
         ),
         .executableTarget(
