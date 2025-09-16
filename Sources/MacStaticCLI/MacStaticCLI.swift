@@ -17,6 +17,7 @@ struct MacStaticCLI: ParsableCommand {
         version: "1.0.0",
         subcommands: [
             Build.self,
+            New.self
         ],
         defaultSubcommand: Build.self
     )
@@ -29,6 +30,15 @@ struct Build: ParsableCommand {
     
     mutating func run() throws {
         let result = try MacStaticCommandProcessor.processCommand("build", arguments: [sourceDir, outputDir])
+        print(result)
+    }
+}
+
+struct New: ParsableCommand {
+    @Argument var name: String
+    
+    mutating func run() throws {
+        let result = try MacStaticCommandProcessor.processCommand("new", arguments: [name])
         print(result)
     }
 }

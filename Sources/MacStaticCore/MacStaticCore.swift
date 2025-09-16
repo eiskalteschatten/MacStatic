@@ -21,8 +21,8 @@ public class MacStaticCommandProcessor {
                 return (false, "Build command requires source and output paths")
             }
             return (true, "Valid build command")
-        case "analyze":
-            return (true, "Valid analyze command")
+        case "new":
+            return (true, "Valid new command")
         default:
             return (false, "Unknown command: \(command)")
         }
