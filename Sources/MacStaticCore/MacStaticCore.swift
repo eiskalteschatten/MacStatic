@@ -36,7 +36,7 @@ public class MacStaticCommandProcessor {
                 // Expect arguments: [sourcePath, outputPath]
                 // let sourcePath = arguments.count > 0 ? arguments[0] : ""
                 // let outputPath = arguments.count > 1 ? arguments[1] : ""
-                // let result = try markdownService.buildSite(from: source, to: output)
+                // let result = try markdownService.buildSite(from: sourcePath, to: outputPath)
                 let result = try markdownService.processMarkdownFile("")
                 return "Site built successfully: \(result)"
             } catch {
