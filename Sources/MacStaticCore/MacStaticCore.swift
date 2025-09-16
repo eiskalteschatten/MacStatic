@@ -7,36 +7,29 @@
 
 import Foundation
 
-@MainActor
-public class MacStaticCore: ObservableObject {
-    @Published public var status: String = "Ready"
-    @Published public var isProcessing: Bool = false
-    @Published public var results: [String] = []
-    
-    public init() {}
-    
-    public func processCommand(_ command: String, arguments: [String] = []) async throws -> String {
-        isProcessing = true
-        status = "Processing..."
-        
-        defer {
-            isProcessing = false
-            status = "Ready"
-        }
-        
-        // Your core business logic here
-        let result = await performOperation(command: command, arguments: arguments)
-        results.append(result)
-        
-        return result
+// Unified command processing - not main actor isolated
+public class MacStaticCommandProcessor {
+    public static func processCommand(_ command: String, arguments: [String] = []) throws -> String {
+        return executeCommand(command: command, arguments: arguments)
     }
     
-    private func performOperation(command: String, arguments: [String]) async -> String {
-        // Simulate work
-        try? await Task.sleep(nanoseconds: 1_000_000_000)
-        
-        // Your actual implementation
-        switch command {
+    // Validate command and arguments
+    public static func validateCommand(_ command: String, arguments: [String]) -> (isValid: Bool, message: String) {
+        switch command.lowercased() {
+        case "build":
+            if arguments.count < 2 {
+                return (false, "Build command requires source and output paths")
+            }
+            return (true, "Valid build command")
+        case "analyze":
+            return (true, "Valid analyze command")
+        default:
+            return (false, "Unknown command: \(command)")
+        }
+    }
+    
+    private static func executeCommand(command: String, arguments: [String]) -> String {
+        switch command.lowercased() {
         case "build":
             let siteBuilder = SiteBuilder()
             do {
@@ -53,5 +46,37 @@ public class MacStaticCore: ObservableObject {
         default:
             return "Unknown command: \(command)"
         }
+    }
+}
+
+@MainActor
+public class MacStaticCore: ObservableObject {
+    @Published public var status: String = "Ready"
+    @Published public var isProcessing: Bool = false
+    @Published public var results: [String] = []
+    
+    public init() {}
+    
+    // Async version for GUI
+    public func processCommand(_ command: String, arguments: [String] = []) async throws -> String {
+        isProcessing = true
+        status = "Processing..."
+        
+        defer {
+            isProcessing = false
+            status = "Ready"
+        }
+        
+        let result = await performOperation(command: command, arguments: arguments)
+        results.append(result)
+        
+        return result
+    }
+    
+    private func performOperation(command: String, arguments: [String]) async -> String {
+        // Simulate work for GUI
+        try? await Task.sleep(nanoseconds: 1_000_000_000)
+        
+        return try! MacStaticCommandProcessor.processCommand(command, arguments: arguments)
     }
 }

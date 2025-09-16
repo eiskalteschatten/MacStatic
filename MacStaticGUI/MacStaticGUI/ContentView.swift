@@ -46,7 +46,7 @@ struct ContentView: View {
                         Text(core.isProcessing ? "Processing..." : "Execute")
                     }
                 }
-                .disabled(core.isProcessing || commandText.isEmpty)
+                .disabled(core.isProcessing || commandText.isEmpty || (commandText.lowercased() == "build" && (sourcePath.isEmpty || outputPath.isEmpty)))
                 .buttonStyle(.borderedProminent)
                 
                 // Results section
@@ -93,6 +93,13 @@ struct ContentView: View {
         // Build arguments based on command type
         if commandText.lowercased() == "build" {
             arguments = [sourcePath, outputPath]
+        }
+        
+        // Validate command before execution
+        let validation = MacStaticCommandProcessor.validateCommand(commandText, arguments: arguments)
+        if !validation.isValid {
+            currentResult = "Validation Error: \(validation.message)"
+            return
         }
         
         Task {

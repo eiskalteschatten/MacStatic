@@ -28,9 +28,7 @@ struct Build: ParsableCommand {
     @Argument var outputDir: String
     
     mutating func run() throws {
-        let builder = SiteBuilder()
-        let parsedMarkdown = try builder.build(source: sourceDir, output: outputDir)
-        print("Parsed string: \(parsedMarkdown)")
-//        FileHandle.standardOutput.write("Built site.\n".data(using: .utf8)!)
+        let result = try MacStaticCommandProcessor.processCommand("build", arguments: [sourceDir, outputDir])
+        print(result)
     }
 }
