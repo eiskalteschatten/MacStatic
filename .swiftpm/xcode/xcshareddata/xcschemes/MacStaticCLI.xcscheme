@@ -52,7 +52,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "parse"
+            argument = "build src output"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

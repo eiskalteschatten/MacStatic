@@ -37,10 +37,11 @@ public class MacStaticCore: ObservableObject {
         
         // Your actual implementation
         switch command {
-        case "parse":
+        case "build":
+            let markdownService = MarkdownService()
             var parsedMarkdown = ""
             do {
-                parsedMarkdown = try MarkdownService.processMarkdownFile("")
+                parsedMarkdown = try markdownService.processMarkdownFile("")
             } catch {
                 print("Failed to load config: \(error)")
             }
