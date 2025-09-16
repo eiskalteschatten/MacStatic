@@ -43,7 +43,10 @@ public class MacStaticCommandProcessor {
                 return "Build failed: \(error.localizedDescription)"
             }
         case "new":
-            return "New project created: \(arguments[0])"
+            let name = arguments.count > 0 ? arguments[0] : ""
+            let projectService = ProjectService()
+            let result = projectService.createNewProject(name: name)
+            return result
         default:
             return "Unknown command: \(command)"
         }
