@@ -16,7 +16,7 @@ struct ContentView: View {
     @State private var currentResult = ""
     
     var body: some View {
-        NavigationView {
+        ScrollView {
             VStack(spacing: 20) {
                 // Input section
                 VStack(alignment: .leading, spacing: 10) {
@@ -53,7 +53,7 @@ struct ContentView: View {
                             .font(.system(.body, design: .monospaced))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding()
-                            .background(Color(.systemGray6))
+                            .background(Color(.systemGray))
                             .cornerRadius(8)
                     }
                     .frame(minHeight: 200)
@@ -75,15 +75,13 @@ struct ContentView: View {
                 
                 Spacer()
             }
-            .padding()
-            .navigationTitle("Your App")
+            #if os(macOS)
+            .frame(minWidth: 600, maxWidth: 800, minHeight: 500, maxHeight: .infinity)
+            #endif
         }
-        #if os(macOS)
-        .frame(minWidth: 600, minHeight: 500)
-        #endif
     }
     
-    private mutating func executeCommand() {
+    private func executeCommand() {
         let arguments = argumentsText.split(separator: " ").map(String.init)
         
         Task {
