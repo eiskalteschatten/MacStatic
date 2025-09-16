@@ -21,13 +21,17 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
-        .target(name: "MacStaticCore"),
+        .target(
+            name: "MacStaticCore",
+            dependencies: [
+                .product(name: "Markdown", package: "swift-markdown")
+            ]
+        ),
         .executableTarget(
             name: "MacStaticCLI",
             dependencies: [
                 "MacStaticCore",
-                .product(name: "ArgumentParser", package: "swift-argument-parser"),
-                .product(name: "Markdown", package: "swift-markdown")
+                .product(name: "ArgumentParser", package: "swift-argument-parser")
             ]
         ),
         .testTarget(
