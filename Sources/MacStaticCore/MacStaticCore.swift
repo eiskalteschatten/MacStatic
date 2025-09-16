@@ -41,8 +41,8 @@ public class MacStaticCommandProcessor {
             } catch {
                 return "Build failed: \(error.localizedDescription)"
             }
-        case "analyze":
-            return "Analysis complete: \(arguments.count) items processed"
+        case "new":
+            return "New project created: \(arguments[0])"
         default:
             return "Unknown command: \(command)"
         }
