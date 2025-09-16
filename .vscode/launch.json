@@ -1,0 +1,22 @@
+{
+  "configurations": [
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:MacStatic}",
+      "name": "Debug MacStaticCLI",
+      "program": "${workspaceFolder:MacStatic}/.build/debug/MacStaticCLI",
+      "preLaunchTask": "swift: Build Debug MacStaticCLI"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:MacStatic}",
+      "name": "Release MacStaticCLI",
+      "program": "${workspaceFolder:MacStatic}/.build/release/MacStaticCLI",
+      "preLaunchTask": "swift: Build Release MacStaticCLI"
+    }
+  ]
+}
