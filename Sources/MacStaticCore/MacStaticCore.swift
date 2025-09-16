@@ -37,8 +37,14 @@ public class MacStaticCore: ObservableObject {
         
         // Your actual implementation
         switch command {
-        case "process":
-            return "Processed with args: \(arguments.joined(separator: ", "))"
+        case "parse":
+            var parsedMarkdown = ""
+            do {
+                parsedMarkdown = try MarkdownService.processMarkdownFile("")
+            } catch {
+                print("Failed to load config: \(error)")
+            }
+            return "Parsed string: \(parsedMarkdown)"
         case "analyze":
             return "Analysis complete: \(arguments.count) items processed"
         default:

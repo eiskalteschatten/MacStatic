@@ -9,9 +9,10 @@ import Foundation
 import Markdown
 
 public class MarkdownService {
-    public func processMarkdownFile(_ filePath: String) throws -> String {
-        let markdownContent = try String(contentsOfFile: filePath)
+    public static func processMarkdownFile(_ filePath: String) throws -> String {
+//        let markdownContent = try String(contentsOfFile: filePath)
+        let markdownContent = "# Test Headline"
         let document = Document(parsing: markdownContent)
-        return document.format(as: .html)
+        return HTMLFormatter.format(document)
     }
 }
