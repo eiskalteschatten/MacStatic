@@ -38,14 +38,16 @@ public class MacStaticCore: ObservableObject {
         // Your actual implementation
         switch command {
         case "build":
-            let markdownService = MarkdownService()
-            var parsedMarkdown = ""
+            let siteBuilder = SiteBuilder()
             do {
-                parsedMarkdown = try markdownService.processMarkdownFile("")
+                // Expect arguments: [sourcePath, outputPath]
+                let sourcePath = arguments.count > 0 ? arguments[0] : ""
+                let outputPath = arguments.count > 1 ? arguments[1] : ""
+                let result = try siteBuilder.build(source: sourcePath, output: outputPath)
+                return "Site built successfully: \(result)"
             } catch {
-                print("Failed to load config: \(error)")
+                return "Build failed: \(error.localizedDescription)"
             }
-            return "Parsed string: \(parsedMarkdown)"
         case "analyze":
             return "Analysis complete: \(arguments.count) items processed"
         default:

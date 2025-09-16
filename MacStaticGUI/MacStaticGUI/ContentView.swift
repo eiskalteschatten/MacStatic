@@ -12,7 +12,8 @@ import SwiftUI
 struct ContentView: View {
     @StateObject private var core = MacStaticCore()
     @State private var commandText = ""
-    @State private var argumentsText = ""
+    @State private var sourcePath = ""
+    @State private var outputPath = ""
     @State private var currentResult = ""
     
     var body: some View {
@@ -23,11 +24,16 @@ struct ContentView: View {
                     Text("Command Input")
                         .font(.headline)
                     
-                    TextField("Enter command", text: $commandText)
+                    TextField("Enter command (e.g., 'build', 'analyze')", text: $commandText)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     
-                    TextField("Arguments (space-separated)", text: $argumentsText)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    if commandText.lowercased() == "build" {
+                        TextField("Source path", text: $sourcePath)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                        
+                        TextField("Output path", text: $outputPath)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                    }
                 }
                 
                 // Action button
@@ -82,7 +88,12 @@ struct ContentView: View {
     }
     
     private func executeCommand() {
-        let arguments = argumentsText.split(separator: " ").map(String.init)
+        var arguments: [String] = []
+        
+        // Build arguments based on command type
+        if commandText.lowercased() == "build" {
+            arguments = [sourcePath, outputPath]
+        }
         
         Task {
             do {
