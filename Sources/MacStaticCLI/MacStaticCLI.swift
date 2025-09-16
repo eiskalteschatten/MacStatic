@@ -34,6 +34,7 @@ struct Build: ParsableCommand {
     }
 }
 
+// MARK: - macstatic new <name>
 struct New: ParsableCommand {
     @Argument var name: String
     
