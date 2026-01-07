@@ -19,7 +19,7 @@ public class ProjectService {
             return "Failed to copy new project files: \(error.localizedDescription)"
         }
 
-        return "New project created: \(atDirectoryURL.path)"
+        return "New project successfully created at \(atDirectoryURL.path)"
     }
     
     /// Get the URL for the NewProjectFiles directory
