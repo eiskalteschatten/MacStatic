@@ -52,7 +52,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "build src output"
+            argument = "new TestProject"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
