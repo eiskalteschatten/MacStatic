@@ -25,11 +25,11 @@ struct MacStaticCLI: ParsableCommand {
 
 // MARK: - macstatic build <sourceDir> <outputDir>
 struct Build: ParsableCommand {
-    @Argument var sourceDir: String
     @Argument var outputDir: String
     
     mutating func run() throws {
-        let result = try MacStaticCommandProcessor.processCommand("build", arguments: [sourceDir, outputDir])
+        let currentDirectory = FileManager.default.currentDirectoryPath
+        let result = try MacStaticCommandProcessor.processCommand("build", arguments: [currentDirectory, outputDir])
         print(result)
     }
 }

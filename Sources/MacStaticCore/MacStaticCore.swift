@@ -33,7 +33,6 @@ public class MacStaticCommandProcessor {
         case "build":
             let markdownService = MarkdownService()
             do {
-                // Expect arguments: [sourcePath, outputPath]
                 // let sourcePath = arguments.count > 0 ? arguments[0] : ""
                 // let outputPath = arguments.count > 1 ? arguments[1] : ""
                 // let result = try markdownService.buildSite(from: sourcePath, to: outputPath)
