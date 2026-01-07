@@ -27,6 +27,9 @@ let package = Package(
             dependencies: [
                 .product(name: "Markdown", package: "swift-markdown"),
                 .product(name: "Stencil", package: "Stencil")
+            ],
+            resources: [
+                .copy("NewProjectFiles")
             ]
         ),
         .executableTarget(
