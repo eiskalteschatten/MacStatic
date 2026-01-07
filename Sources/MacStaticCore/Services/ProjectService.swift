@@ -11,15 +11,21 @@ public class ProjectService {
     public init() {}
     
     public func createNewProject(name: String, at directory: String) -> String {
-        // TODO: Implement project creation
-        // Resources are available via Bundle.module
-        // Example: let templatesURL = Bundle.module.url(forResource: "NewProjectFiles/templates", withExtension: nil)
-        let atDirectoryURL = URL(fileURLWithPath: directory)
-        return "New project created: \(name) at \(atDirectoryURL.path)"
+        let atDirectoryURL = URL(fileURLWithPath: "\(directory)/\(name)")
+        
+        do {
+            try copyTemplateFiles(to: atDirectoryURL)
+        } catch {
+            return "Failed to copy new project files: \(error.localizedDescription)"
+        }
+
+        return "New project created: \(atDirectoryURL.path)"
     }
     
     /// Get the URL for the NewProjectFiles directory
     private func getNewProjectFilesURL() -> URL? {
+        // Resources are available via Bundle.module
+        // Example: let templatesURL = Bundle.module.url(forResource: "NewProjectFiles/templates", withExtension: nil)
         return Bundle.module.resourceURL?.appendingPathComponent("NewProjectFiles")
     }
     
