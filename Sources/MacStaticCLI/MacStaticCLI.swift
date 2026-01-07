@@ -39,7 +39,9 @@ struct New: ParsableCommand {
     @Argument var name: String
     
     mutating func run() throws {
-        let result = try MacStaticCommandProcessor.processCommand("new", arguments: [name])
+        let currentDirectory = FileManager.default.currentDirectoryPath
+        let result = try MacStaticCommandProcessor.processCommand("new", arguments: [name, currentDirectory])
         print(result)
     }
 }
+    

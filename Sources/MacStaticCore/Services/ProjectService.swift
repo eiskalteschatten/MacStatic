@@ -10,20 +10,21 @@ import Foundation
 public class ProjectService {
     public init() {}
     
-    public func createNewProject(name: String) -> String {
+    public func createNewProject(name: String, at directory: String) -> String {
         // TODO: Implement project creation
         // Resources are available via Bundle.module
         // Example: let templatesURL = Bundle.module.url(forResource: "NewProjectFiles/templates", withExtension: nil)
-        return "New project created: \(name)"
+        let atDirectoryURL = URL(fileURLWithPath: directory)
+        return "New project created: \(name) at \(atDirectoryURL.path)"
     }
     
     /// Get the URL for the NewProjectFiles directory
-    public func getNewProjectFilesURL() -> URL? {
+    private func getNewProjectFilesURL() -> URL? {
         return Bundle.module.resourceURL?.appendingPathComponent("NewProjectFiles")
     }
     
     /// Copy template files to a destination
-    public func copyTemplateFiles(to destinationURL: URL) throws {
+    private func copyTemplateFiles(to destinationURL: URL) throws {
         guard let templateURL = getNewProjectFilesURL() else {
             throw NSError(domain: "ProjectService", code: 1, userInfo: [NSLocalizedDescriptionKey: "Template files not found"])
         }

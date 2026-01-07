@@ -44,8 +44,9 @@ public class MacStaticCommandProcessor {
             }
         case "new":
             let name = arguments.count > 0 ? arguments[0] : ""
+            let directory = arguments.count > 1 ? arguments[1] : ""
             let projectService = ProjectService()
-            let result = projectService.createNewProject(name: name)
+            let result = projectService.createNewProject(name: name, at: directory)
             return result
         default:
             return "Unknown command: \(command)"
