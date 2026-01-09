@@ -12,11 +12,18 @@ public class BuildService {
     
     public func buildSite(from sourcePath: String, to outputPath: String) throws {
         let allMarkdownFiles = getAllMarkdownFiles(in: sourcePath)
-        let markdownService = MarkdownService()
         let fileManager = FileManager.default
              
         for markdownFile in allMarkdownFiles {
-            let parsedMarkdown = try markdownService.processMarkdownFile(markdownFile)
+            let markdownService = MarkdownService(markdownFile)
+            
+            guard let parsedMarkdown = try markdownService.processMarkdownFile() else {
+                continue
+            }
+            
+            guard let frontMatter = markdownService.frontMatter as FrontMatter? else {
+                continue
+            }
             
             // Get relative path from content directory
             let fullPathToContent = "\(sourcePath)/\(pathToMarkdownContent)"
@@ -30,11 +37,17 @@ public class BuildService {
             let outputDirectory = (outputFilePath as NSString).deletingLastPathComponent
             try fileManager.createDirectory(atPath: outputDirectory, withIntermediateDirectories: true, attributes: nil)
             
+            // TODO: figure out how to apply templates/layouts here
+            
             // Write the HTML content to file
             try parsedMarkdown.write(toFile: outputFilePath, atomically: true, encoding: .utf8)
             
             NSLog("Built and saved: \(fullPathToContent)/\(relativePath) -> \(outputFilePath)")
         }
+        
+        // TODO:
+        //  - Process templates and layouts
+        //  - Copy static assets (CSS, JS, images, etc.) from source to output
     }
     
     private func getAllMarkdownFiles(in directory: String) -> [String] {

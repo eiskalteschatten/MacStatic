@@ -13,7 +13,7 @@ enum FrontMatterType: String {
     case post = "post"
 }
 
-struct FrontMatter{
+public struct FrontMatter {
     var title: String?
     var layout: String?
     var excerpt: String?
@@ -26,18 +26,28 @@ struct FrontMatter{
 }
 
 public class MarkdownService {
-    public func processMarkdownFile(_ filePath: String) throws -> String {
-        let fileContent = try String(contentsOfFile: filePath, encoding: .utf8)
-        let frontMatter = parseFrontMatter(fileContent)
+    private var markdownFile: String
+    
+    public var frontMatter = FrontMatter()
+    public var parsedContent: String?
+    
+    public init(_ markdownFile: String) {
+        self.markdownFile = markdownFile
+    }
+        
+    public func processMarkdownFile() throws -> String? {
+        let fileContent = try String(contentsOfFile: markdownFile, encoding: .utf8)
+        setFrontMatter(fileContent)
         let markdownContent = parseMarkdownContent(fileContent)
         let document = Document(parsing: markdownContent)
-        return HTMLFormatter.format(document)
+        parsedContent = HTMLFormatter.format(document)
+        return parsedContent
     }
     
-    private func parseFrontMatter(_ content: String) -> FrontMatter? {
+    private func setFrontMatter(_ content: String) {
         // Check if content starts with ---
         guard content.hasPrefix("---") else {
-            return nil
+            return
         }
         
         // Find the closing ---
@@ -57,11 +67,10 @@ public class MarkdownService {
         }
         
         guard foundClosing else {
-            return nil
+            return
         }
         
         // Parse the front matter lines
-        var frontMatter = FrontMatter()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
@@ -95,8 +104,6 @@ public class MarkdownService {
                 break
             }
         }
-        
-        return frontMatter
     }
     
     private func parseMarkdownContent(_ content: String) -> String {
