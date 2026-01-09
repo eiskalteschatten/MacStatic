@@ -1,0 +1,13 @@
+{% extends "layouts/default.html" %}
+
+<div>
+    Post List here
+    
+    {% if post_type == "image" %}
+        {% include "post_tile_image.html" post %}
+    {% elif post_type == "text" %}
+        {% include "post_tile_text.html" post %}
+    {% else %}
+        {% include "post_tile_basic.html" post %}
+    {% endif %}
+</div>
