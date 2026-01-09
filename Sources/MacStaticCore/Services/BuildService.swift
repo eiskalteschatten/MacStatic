@@ -11,45 +11,8 @@ public class BuildService {
     private let pathToMarkdownContent = "content"
     
     public func buildSite(from sourcePath: String, to outputPath: String) throws {
-        let allMarkdownFiles = getAllMarkdownFiles(in: sourcePath)
-        let fileManager = FileManager.default
-             
-        for markdownFile in allMarkdownFiles {
-            let markdownService = MarkdownService(markdownFile)
-            
-            guard let parsedMarkdown = try markdownService.processMarkdownFile() else {
-                continue
-            }
-            
-            guard let frontMatter = markdownService.frontMatter as FrontMatter? else {
-                continue
-            }
-            
-            // Get relative path from content directory
-            let fullPathToContent = "\(sourcePath)/\(pathToMarkdownContent)"
-            let relativePath = markdownFile.replacingOccurrences(of: fullPathToContent + "/", with: "")
-            
-            // Change .md extension to .html
-            let htmlFileName = relativePath.replacingOccurrences(of: ".md", with: ".html")
-            let outputFilePath = makeURLFriendly("\(outputPath)/\(htmlFileName)")
-            
-            // Create intermediate directories if needed
-            let outputDirectory = (outputFilePath as NSString).deletingLastPathComponent
-            try fileManager.createDirectory(atPath: outputDirectory, withIntermediateDirectories: true, attributes: nil)
-            
-            // Render the templates with the parsed Markdown content
-            let templateRenderService = TemplateRenderService(type: frontMatter.type, layout: frontMatter.layout)
-            let renderedContent = templateRenderService.render(markdownContent: parsedMarkdown)
-            
-            // Write the HTML content to file
-            try renderedContent.write(toFile: outputFilePath, atomically: true, encoding: .utf8)
-            
-            NSLog("Built and saved: \(fullPathToContent)/\(relativePath) -> \(outputFilePath)")
-        }
-        
-        // TODO:
-        //  - Process templates and layouts
-        //  - Copy static assets (CSS, JS, images, etc.) from source to output
+        try renderPages(from: sourcePath, to: outputPath)
+        try copyAssets(from: sourcePath, to: outputPath)
     }
     
     private func getAllMarkdownFiles(in directory: String) -> [String] {
@@ -89,5 +52,47 @@ public class BuildService {
         }
         
         return friendlyComponents.joined(separator: "/")
+    }
+    
+    private func renderPages(from sourcePath: String, to outputPath: String) throws {
+        let allMarkdownFiles = getAllMarkdownFiles(in: sourcePath)
+        
+        for markdownFile in allMarkdownFiles {
+            let markdownService = MarkdownService(markdownFile)
+            
+            guard let parsedMarkdown = try markdownService.processMarkdownFile() else {
+                continue
+            }
+            
+            guard let frontMatter = markdownService.frontMatter as FrontMatter? else {
+                continue
+            }
+            
+            // Get relative path from content directory
+            let fullPathToContent = "\(sourcePath)/\(pathToMarkdownContent)"
+            let relativePath = markdownFile.replacingOccurrences(of: fullPathToContent + "/", with: "")
+            
+            // Change .md extension to .html
+            let htmlFileName = relativePath.replacingOccurrences(of: ".md", with: ".html")
+            let outputFilePath = makeURLFriendly("\(outputPath)/\(htmlFileName)")
+            
+            // Create intermediate directories if needed
+            let outputDirectory = (outputFilePath as NSString).deletingLastPathComponent
+            let fileManager = FileManager.default
+            try fileManager.createDirectory(atPath: outputDirectory, withIntermediateDirectories: true, attributes: nil)
+            
+            // Render the templates with the parsed Markdown content
+            let templateRenderService = TemplateRenderService(type: frontMatter.type, layout: frontMatter.layout)
+            let renderedContent = templateRenderService.render(markdownContent: parsedMarkdown)
+            
+            // Write the HTML content to file
+            try renderedContent.write(toFile: outputFilePath, atomically: true, encoding: .utf8)
+            
+            NSLog("Saved: \(fullPathToContent)/\(relativePath) -> \(outputFilePath)")
+        }
+    }
+    
+    private func copyAssets(from sourcePath: String, to outputPath: String) throws {
+        // TODO: Copy static assets (CSS, JS, images, etc.) from source to output
     }
 }
