@@ -27,8 +27,9 @@ struct FrontMatter{
 
 public class MarkdownService {
     public func processMarkdownFile(_ filePath: String) throws -> String {
-        let markdownContent = try String(contentsOfFile: filePath)
-        let frontMatter = parseFrontMatter(markdownContent)
+        let fileContent = try String(contentsOfFile: filePath)
+        let frontMatter = parseFrontMatter(fileContent)
+        let markdownContent = parseMarkdownContent(fileContent)
         let document = Document(parsing: markdownContent)
         return HTMLFormatter.format(document)
     }
@@ -96,5 +97,28 @@ public class MarkdownService {
         }
         
         return frontMatter
+    }
+    
+    private func parseMarkdownContent(_ content: String) -> String {
+        // Remove front matter section
+        let lines = content.components(separatedBy: .newlines)
+        var markdownLines: [String] = []
+        var inFrontMatter = false
+        var lineIndex = 0
+        
+        while lineIndex < lines.count {
+            let line = lines[lineIndex]
+            if line.trimmingCharacters(in: .whitespaces) == "---" {
+                inFrontMatter.toggle()
+                lineIndex += 1
+                continue
+            }
+            if !inFrontMatter {
+                markdownLines.append(line)
+            }
+            lineIndex += 1
+        }
+        
+        return markdownLines.joined(separator: "\n")
     }
 }
