@@ -8,27 +8,22 @@
 import Foundation
 import Markdown
 
-enum FrontMatterType: String {
-    case page = "page"
-    case post = "post"
-}
-
 public struct FrontMatter {
     var title: String?
-    var layout: String?
     var excerpt: String?
     var author: String?
     var date: Date?
     var updated: Date?
     var draft: Bool?
     var tags: [String]?
-    var type: FrontMatterType?
+    var layout: String
+    var type: String
 }
 
 public class MarkdownService {
     private var markdownFile: String
     
-    public var frontMatter = FrontMatter()
+    public var frontMatter = FrontMatter(layout: "default", type: "page")
     public var parsedContent: String?
     
     public init(_ markdownFile: String) {
@@ -99,7 +94,7 @@ public class MarkdownService {
             case "tags":
                 frontMatter.tags = value.components(separatedBy: ", ").map { $0.trimmingCharacters(in: .whitespaces) }
             case "type":
-                frontMatter.type = FrontMatterType(rawValue: value) ?? .page
+                frontMatter.type = value
             default:
                 break
             }

@@ -37,10 +37,12 @@ public class BuildService {
             let outputDirectory = (outputFilePath as NSString).deletingLastPathComponent
             try fileManager.createDirectory(atPath: outputDirectory, withIntermediateDirectories: true, attributes: nil)
             
-            // TODO: figure out how to apply templates/layouts here
+            // Render the templates with the parsed Markdown content
+            let templateRenderService = TemplateRenderService(type: frontMatter.type, layout: frontMatter.layout)
+            let renderedContent = templateRenderService.render(markdownContent: parsedMarkdown)
             
             // Write the HTML content to file
-            try parsedMarkdown.write(toFile: outputFilePath, atomically: true, encoding: .utf8)
+            try renderedContent.write(toFile: outputFilePath, atomically: true, encoding: .utf8)
             
             NSLog("Built and saved: \(fullPathToContent)/\(relativePath) -> \(outputFilePath)")
         }
