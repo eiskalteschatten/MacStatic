@@ -9,7 +9,6 @@ import Foundation
 
 public class BuildService {
     public func buildSite(from sourcePath: String, to outputPath: String) throws {
-        // Placeholder implementation
         
     }
 }
