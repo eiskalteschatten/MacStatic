@@ -1,6 +1,7 @@
 ---
+title: About
 layout: default
 type: page
 ---
 
-# Homepage
+# About
