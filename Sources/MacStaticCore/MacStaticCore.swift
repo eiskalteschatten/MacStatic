@@ -31,13 +31,15 @@ public class MacStaticCommandProcessor {
     private static func executeCommand(command: String, arguments: [String]) -> String {
         switch command.lowercased() {
         case "build":
-            let markdownService = MarkdownService()
+//            let markdownService = MarkdownService()
+            let buildService = BuildService()
             do {
-                // let sourcePath = arguments.count > 0 ? arguments[0] : ""
-                // let outputPath = arguments.count > 1 ? arguments[1] : ""
+                 let sourcePath = arguments.count > 0 ? arguments[0] : ""
+                 let outputPath = sourcePath + "/dist"
                 // let result = try markdownService.buildSite(from: sourcePath, to: outputPath)
-                let result = try markdownService.processMarkdownFile("")
-                return "Site built successfully: \(result)"
+//                let result = try markdownService.processMarkdownFile("")
+                try buildService.buildSite(from: sourcePath, to: outputPath)
+                return "Site built successfully at \(outputPath)"
             } catch {
                 return "Build failed: \(error.localizedDescription)"
             }

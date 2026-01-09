@@ -7,9 +7,7 @@
 
 import Foundation
 
-public class ProjectService {
-    public init() {}
-    
+public class ProjectService {   
     public func createNewProject(name: String, at directory: String) -> String {
         let atDirectoryURL = URL(fileURLWithPath: "\(directory)/\(name)")
         
