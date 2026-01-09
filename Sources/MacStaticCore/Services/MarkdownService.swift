@@ -27,7 +27,7 @@ struct FrontMatter{
 
 public class MarkdownService {
     public func processMarkdownFile(_ filePath: String) throws -> String {
-        let fileContent = try String(contentsOfFile: filePath)
+        let fileContent = try String(contentsOfFile: filePath, encoding: .utf8)
         let frontMatter = parseFrontMatter(fileContent)
         let markdownContent = parseMarkdownContent(fileContent)
         let document = Document(parsing: markdownContent)
