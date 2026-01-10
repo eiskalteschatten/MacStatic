@@ -89,7 +89,6 @@ class BuildService {
             try fileManager.createDirectory(atPath: outputDirectory, withIntermediateDirectories: true, attributes: nil)
             
             // Render the templates with the parsed Markdown content
-            
             let templateRenderService = TemplateRenderService(layout: frontMatter.layout, pathToTemplates: sourcePath)
             let renderedContent = try templateRenderService.render(markdownContent: parsedMarkdown, frontMatter: frontMatter, posts: posts)
             

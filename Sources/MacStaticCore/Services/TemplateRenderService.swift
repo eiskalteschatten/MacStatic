@@ -18,7 +18,7 @@ class TemplateRenderService {
         self.pathToTemplates = pathToTemplates
     }
     
-    func render(markdownContent: String, frontMatter: FrontMatter, posts: [PostMeta]) throws -> String {
+    func render(markdownContent: String, frontMatter: FrontMatter, posts: [PostMeta]? = nil) throws -> String {
         let siteConfig = try SiteConfig.shared.getSiteConfig()
         
         let context: [String: Any] = [
