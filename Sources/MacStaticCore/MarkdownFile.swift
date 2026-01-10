@@ -15,7 +15,7 @@ enum MarkdownPageType: String {
 
 struct FrontMatter {
     var title: String?
-    var excerpt: String?
+    var description: String?
     var author: String?
     var date: Date?
     var updated: Date?
@@ -86,8 +86,8 @@ class MarkdownFile {
                 frontMatter.title = value
             case "layout":
                 frontMatter.layout = value
-            case "excerpt":
-                frontMatter.excerpt = value
+            case "description":
+                frontMatter.description = value
             case "author":
                 frontMatter.author = value
             case "date":

@@ -1,6 +1,6 @@
 ---
 title: Example Post
-excerpt: A brief exerpt of the post.
+description: A brief exerpt of the post.
 author: John Doe
 date: 2026-01-09
 updated: 2026-01-09
