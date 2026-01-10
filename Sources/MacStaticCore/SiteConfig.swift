@@ -56,5 +56,3 @@ final class SiteConfig: @unchecked Sendable {
         return config
     }
 }
-
-    

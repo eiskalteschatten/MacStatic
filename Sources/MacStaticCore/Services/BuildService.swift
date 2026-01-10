@@ -9,13 +9,18 @@ import Foundation
 
 class BuildService {
     private let pathToMarkdownContent = "content"
+    private var posts: [PostMeta] = []
     
     func buildSite(from sourcePath: String, to outputPath: String) throws {
         try SiteConfig.shared.loadSiteConfig(sourcePath: sourcePath)
+        
+        let postService = PostService()
+        posts = postService.buildPostIndex()
+        
         try renderPages(from: sourcePath, to: outputPath)
         try copyAssets(from: sourcePath, to: outputPath)
     }
-    
+       
     private func getAllMarkdownFiles(in directory: String) -> [String] {
         let fullPathToContent = "\(directory)/\(pathToMarkdownContent)"
         let fileManager = FileManager.default
@@ -85,7 +90,7 @@ class BuildService {
             // Render the templates with the parsed Markdown content
             
             let templateRenderService = TemplateRenderService(layout: frontMatter.layout, pathToTemplates: sourcePath)
-            let renderedContent = try templateRenderService.render(markdownContent: parsedMarkdown, frontMatter: frontMatter)
+            let renderedContent = try templateRenderService.render(markdownContent: parsedMarkdown, frontMatter: frontMatter, posts: posts)
             
             // Write the HTML content to file
             try renderedContent.write(toFile: outputFilePath, atomically: true, encoding: .utf8)
