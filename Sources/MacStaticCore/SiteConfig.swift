@@ -31,7 +31,7 @@ final class SiteConfig: @unchecked Sendable {
             return
         }
         
-        let configPath = "\(sourcePath)/config.json"
+        let configPath = "\(sourcePath)/siteconfig.json"
         let url = URL(fileURLWithPath: configPath)
         let data: Data
         
