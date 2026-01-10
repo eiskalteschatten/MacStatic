@@ -95,6 +95,16 @@ class BuildService {
     }
     
     private func copyAssets(from sourcePath: String, to outputPath: String) throws {
-        // TODO: Copy static assets (CSS, JS, images, etc.) from source to output
+        let fileManager = FileManager.default
+        let sourceURL = URL(fileURLWithPath: "\(sourcePath)/assets")
+        let destinationURL = URL(fileURLWithPath: "\(outputPath)/assets")
+        
+        if fileManager.fileExists(atPath: destinationURL.path) {
+            try fileManager.removeItem(at: destinationURL)
+        }
+
+        try fileManager.copyItem(at: sourceURL, to: destinationURL)
+
+        print("Assets copied from \(sourceURL.path) to \(destinationURL.path)")
     }
 }
