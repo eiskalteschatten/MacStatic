@@ -26,7 +26,7 @@ class TemplateRenderService {
             "siteName": siteConfig.siteName,
             "lang": siteConfig.lang,
             "frontMatter": frontMatter,
-            "posts": posts
+            "posts": posts as Any
         ]
         
         let environment = Environment(loader: FileSystemLoader(paths: [Path(pathToTemplates)]))
