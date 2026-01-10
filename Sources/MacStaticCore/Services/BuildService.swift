@@ -11,6 +11,7 @@ public class BuildService {
     private let pathToMarkdownContent = "content"
     
     public func buildSite(from sourcePath: String, to outputPath: String) throws {
+        try SiteConfig.shared.loadSiteConfig(sourcePath: sourcePath)
         try renderPages(from: sourcePath, to: outputPath)
         try copyAssets(from: sourcePath, to: outputPath)
     }
