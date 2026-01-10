@@ -9,12 +9,12 @@ import Foundation
 
 // Unified command processing - not main actor isolated
 public class MacStaticCommandProcessor {
-    static func processCommand(_ command: String, arguments: [String] = []) throws -> String {
+    public static func processCommand(_ command: String, arguments: [String] = []) throws -> String {
         return executeCommand(command: command, arguments: arguments)
     }
     
     // Validate command and arguments
-    static func validateCommand(_ command: String, arguments: [String]) -> (isValid: Bool, message: String) {
+    public static func validateCommand(_ command: String, arguments: [String]) -> (isValid: Bool, message: String) {
         switch command.lowercased() {
         case "build":
             if arguments.count < 2 {
