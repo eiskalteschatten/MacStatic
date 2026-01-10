@@ -19,7 +19,7 @@ public struct FrontMatter {
     var layout: String
 }
 
-public class MarkdownService {
+public class MarkdownFile {
     private var markdownFile: String
     
     public var frontMatter = FrontMatter(layout: "default")
@@ -29,7 +29,7 @@ public class MarkdownService {
         self.markdownFile = markdownFile
     }
         
-    public func processMarkdownFile() throws -> String? {
+    public func parse() throws -> String? {
         let fileContent = try String(contentsOfFile: markdownFile, encoding: .utf8)
         setFrontMatter(fileContent)
         let markdownContent = parseMarkdownContent(fileContent)

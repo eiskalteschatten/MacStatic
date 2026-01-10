@@ -59,9 +59,9 @@ public class BuildService {
         let allMarkdownFiles = getAllMarkdownFiles(in: sourcePath)
         
         for markdownFile in allMarkdownFiles {
-            let markdownService = MarkdownService(markdownFile)
+            let markdownService = MarkdownFile(markdownFile)
             
-            guard let parsedMarkdown = try markdownService.processMarkdownFile() else {
+            guard let parsedMarkdown = try markdownService.parse() else {
                 continue
             }
             
