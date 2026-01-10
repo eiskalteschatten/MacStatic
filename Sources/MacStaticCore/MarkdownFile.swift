@@ -53,8 +53,9 @@ class MarkdownFile {
         return frontMatter!
     }
     
-    func getLink() -> String {
-        let htmlFileName = relativePath.replacingOccurrences(of: ".post", with: "")
+    func getHTMLFilePath() -> String {
+        var htmlFileName = relativePath.replacingOccurrences(of: "\(ProjectFiles.pathToMarkdownContent)/", with: "")
+        htmlFileName = htmlFileName.replacingOccurrences(of: ".post", with: "")
         return htmlFileName.replacingOccurrences(of: ".md", with: ".html")
     }
     

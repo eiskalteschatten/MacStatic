@@ -80,8 +80,7 @@ class BuildService {
             let relativePath = markdownFilePath.replacingOccurrences(of: fullPathToContent + "/", with: "")
             
             // Change .md extension to .html
-            var htmlFileName = relativePath.replacingOccurrences(of: ".post", with: "")
-            htmlFileName = relativePath.replacingOccurrences(of: ".md", with: ".html")
+            let htmlFileName = markdownFile.getHTMLFilePath()
             let outputFilePath = makeURLFriendly("\(outputPath)/\(htmlFileName)")
             
             // Create intermediate directories if needed

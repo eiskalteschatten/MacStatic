@@ -32,7 +32,7 @@ class PostService {
                 continue
             }
                        
-            posts.append(PostMeta(frontMatter: frontMatter, path: markdownFile.relativePath, link: markdownFile.getLink()))
+            posts.append(PostMeta(frontMatter: frontMatter, path: markdownFile.relativePath, link: markdownFile.getHTMLFilePath()))
         }
         
         return posts
