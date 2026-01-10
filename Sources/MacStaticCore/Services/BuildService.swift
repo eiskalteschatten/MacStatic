@@ -82,7 +82,8 @@ public class BuildService {
             try fileManager.createDirectory(atPath: outputDirectory, withIntermediateDirectories: true, attributes: nil)
             
             // Render the templates with the parsed Markdown content
-            let templateRenderService = TemplateRenderService(type: frontMatter.type, layout: frontMatter.layout)
+            
+            let templateRenderService = TemplateRenderService(layout: frontMatter.layout)
             let renderedContent = templateRenderService.render(markdownContent: parsedMarkdown)
             
             // Write the HTML content to file

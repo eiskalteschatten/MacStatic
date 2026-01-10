@@ -9,11 +9,9 @@ import Foundation
 import Stencil
 
 public class TemplateRenderService {
-    private var type: String
     private var layout: String
     
-    public init(type: String, layout: String) {
-        self.type = type
+    public init(layout: String) {
         self.layout = layout
     }
     

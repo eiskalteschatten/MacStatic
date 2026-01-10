@@ -17,13 +17,12 @@ public struct FrontMatter {
     var draft: Bool?
     var tags: [String]?
     var layout: String
-    var type: String
 }
 
 public class MarkdownService {
     private var markdownFile: String
     
-    public var frontMatter = FrontMatter(layout: "default", type: "page")
+    public var frontMatter = FrontMatter(layout: "default")
     public var parsedContent: String?
     
     public init(_ markdownFile: String) {
@@ -93,8 +92,6 @@ public class MarkdownService {
                 frontMatter.draft = value.lowercased() == "true"
             case "tags":
                 frontMatter.tags = value.components(separatedBy: ", ").map { $0.trimmingCharacters(in: .whitespaces) }
-            case "type":
-                frontMatter.type = value
             default:
                 break
             }

@@ -1,34 +1,7 @@
-<!DOCTYPE html>
-<html lang="{{ lang | default: "en" }}">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - {{ siteName }}</title>
-    <meta name="description" content="{{ description }}">
+{% include "templates/header.html" %}
     
-    <!-- CSS -->
-    <link rel="stylesheet" href="/assets/css/main.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
-</head>
-<body>
-    <header>
-        <nav>
-            <h1><a href="/">{{ siteName }}</a></h1>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/blog">Blog</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        {{ content }}
-    </main>
-    
-    <footer>
-        <p>&copy; {{ currentYear }} {{ siteName }}. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+<main>
+    {{ content }}
+</main>
+
+{% include "templates/footer.html" %}
