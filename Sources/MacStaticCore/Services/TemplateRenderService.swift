@@ -24,7 +24,8 @@ public class TemplateRenderService {
         let context: [String: Any] = [
             "content": markdownContent,
             "siteName": siteConfig.siteName,
-            "frontMatter": frontMatter            
+            "lang": siteConfig.lang,
+            "frontMatter": frontMatter
         ]
         
         let environment = Environment(loader: FileSystemLoader(paths: [Path(pathToTemplates)]))

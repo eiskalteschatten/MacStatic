@@ -1,4 +1,5 @@
 {
   "configVersion": "1.0.0",
-  "siteName": "My Static Site"
+  "siteName": "My Static Site",
+  "lang": "en"
 }

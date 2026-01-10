@@ -10,6 +10,7 @@ import Foundation
 struct SiteConfigProperties: Codable {
     let configVersion: String
     let siteName: String
+    let lang: String
 }
 
 enum SiteConfigError: Error {
