@@ -6,7 +6,6 @@ date: 2026-01-09
 updated: 2026-01-09
 layout: default
 tags: examples, general
-type: post
 draft: true
 ---
 

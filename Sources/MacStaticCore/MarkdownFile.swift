@@ -1,5 +1,5 @@
 //
-//  MarkDownService.swift
+//  MarkdownFile.swift
 //  MacStaticCore
 //
 //  Created by Alex Seifert on 16.09.25.
@@ -7,11 +7,6 @@
 
 import Foundation
 import Markdown
-
-enum MarkdownPageType: String {
-    case page = "page"
-    case post = "post"
-}
 
 struct FrontMatter {
     var title: String?
@@ -22,21 +17,24 @@ struct FrontMatter {
     var draft: Bool?
     var tags: [String]?
     var layout: String
-    var type: MarkdownPageType
 }
 
 class MarkdownFile {
-    private var markdownFile: String
+    let fullPath: String
+    let relativePath: String
     
-    var frontMatter = FrontMatter(layout: "default", type: .page)
+    var frontMatter: FrontMatter?
     var parsedContent: String?
     
-    init(_ markdownFile: String) {
-        self.markdownFile = markdownFile
+    init(_ fullPath: String, sourcePath: String? = nil) {
+        self.fullPath = fullPath
+        
+        let cwd = sourcePath ?? FileManager.default.currentDirectoryPath
+        relativePath = fullPath.replacingOccurrences(of: cwd + "/", with: "")
     }
         
     func parse() throws -> String? {
-        let fileContent = try String(contentsOfFile: markdownFile, encoding: .utf8)
+        let fileContent = try getFileContents()
         setFrontMatter(fileContent)
         let markdownContent = parseMarkdownContent(fileContent)
         let document = Document(parsing: markdownContent)
@@ -44,7 +42,29 @@ class MarkdownFile {
         return parsedContent
     }
     
+    func getFrontMatter() throws -> FrontMatter {
+        if frontMatter != nil {
+            return frontMatter!
+        }
+        
+        let fileContent = try getFileContents()
+        setFrontMatter(fileContent)
+        
+        return frontMatter!
+    }
+    
+    func getLink() -> String {
+        let htmlFileName = relativePath.replacingOccurrences(of: ".post", with: "")
+        return htmlFileName.replacingOccurrences(of: ".md", with: ".html")
+    }
+    
+    private func getFileContents() throws -> String {
+        return try String(contentsOfFile: fullPath, encoding: .utf8)
+    }
+    
     private func setFrontMatter(_ content: String) {
+        frontMatter = FrontMatter(layout: "default")
+
         // Check if content starts with ---
         guard content.hasPrefix("---") else {
             return
@@ -83,23 +103,21 @@ class MarkdownFile {
             
             switch key {
             case "title":
-                frontMatter.title = value
+                frontMatter!.title = value
             case "layout":
-                frontMatter.layout = value
+                frontMatter!.layout = value
             case "description":
-                frontMatter.description = value
+                frontMatter!.description = value
             case "author":
-                frontMatter.author = value
+                frontMatter!.author = value
             case "date":
-                frontMatter.date = dateFormatter.date(from: value)
+                frontMatter!.date = dateFormatter.date(from: value)
             case "updated":
-                frontMatter.updated = dateFormatter.date(from: value)
+                frontMatter!.updated = dateFormatter.date(from: value)
             case "draft":
-                frontMatter.draft = value.lowercased() == "true"
+                frontMatter!.draft = value.lowercased() == "true"
             case "tags":
-                frontMatter.tags = value.components(separatedBy: ", ").map { $0.trimmingCharacters(in: .whitespaces) }
-            case "type":
-                frontMatter.type = MarkdownPageType(rawValue: value) ?? .page
+                frontMatter!.tags = value.components(separatedBy: ", ").map { $0.trimmingCharacters(in: .whitespaces) }
             default:
                 break
             }

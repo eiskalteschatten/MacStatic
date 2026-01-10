@@ -8,21 +8,20 @@
 import Foundation
 
 class BuildService {
-    private let pathToMarkdownContent = "content"
     private var posts: [PostMeta] = []
     
     func buildSite(from sourcePath: String, to outputPath: String) throws {
         try SiteConfig.shared.loadSiteConfig(sourcePath: sourcePath)
         
-        let postService = PostService()
-        posts = postService.buildPostIndex()
+        let postService = PostService(sourcePath: sourcePath)
+        posts = try postService.buildPostIndex()
         
         try renderPages(from: sourcePath, to: outputPath)
         try copyAssets(from: sourcePath, to: outputPath)
     }
        
     private func getAllMarkdownFiles(in directory: String) -> [String] {
-        let fullPathToContent = "\(directory)/\(pathToMarkdownContent)"
+        let fullPathToContent = "\(directory)/\(ProjectFiles.pathToMarkdownContent)"
         let fileManager = FileManager.default
         var markdownFiles: [String] = []
         
@@ -63,23 +62,26 @@ class BuildService {
     private func renderPages(from sourcePath: String, to outputPath: String) throws {
         let allMarkdownFiles = getAllMarkdownFiles(in: sourcePath)
         
-        for markdownFile in allMarkdownFiles {
-            let markdownService = MarkdownFile(markdownFile)
+        for markdownFilePath in allMarkdownFiles {
+            let markdownFile = MarkdownFile(markdownFilePath, sourcePath: sourcePath)
             
-            guard let parsedMarkdown = try markdownService.parse() else {
+            guard let parsedMarkdown = try markdownFile.parse() else {
+                print("Could not parse the Markdown file \(markdownFilePath)!")
                 continue
             }
             
-            guard let frontMatter = markdownService.frontMatter as FrontMatter? else {
+            guard let frontMatter = markdownFile.frontMatter as FrontMatter? else {
+                print("No front matter could be found for \(markdownFilePath)!")
                 continue
             }
             
             // Get relative path from content directory
-            let fullPathToContent = "\(sourcePath)/\(pathToMarkdownContent)"
-            let relativePath = markdownFile.replacingOccurrences(of: fullPathToContent + "/", with: "")
+            let fullPathToContent = "\(sourcePath)/\(ProjectFiles.pathToMarkdownContent)"
+            let relativePath = markdownFilePath.replacingOccurrences(of: fullPathToContent + "/", with: "")
             
             // Change .md extension to .html
-            let htmlFileName = relativePath.replacingOccurrences(of: ".md", with: ".html")
+            var htmlFileName = relativePath.replacingOccurrences(of: ".post", with: "")
+            htmlFileName = relativePath.replacingOccurrences(of: ".md", with: ".html")
             let outputFilePath = makeURLFriendly("\(outputPath)/\(htmlFileName)")
             
             // Create intermediate directories if needed
