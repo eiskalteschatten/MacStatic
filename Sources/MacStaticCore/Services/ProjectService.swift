@@ -10,6 +10,11 @@ import Foundation
 public class ProjectService {   
     public func createNewProject(name: String, at directory: String) -> String {
         let atDirectoryURL = URL(fileURLWithPath: "\(directory)/\(name)")
+        let fileManager = FileManager.default
+        
+        if fileManager.fileExists(atPath: atDirectoryURL.path()) {
+            return "Could not create the project \"\(name)\". A directory already exists at \(atDirectoryURL.path())"
+        }
         
         do {
             try copyTemplateFiles(to: atDirectoryURL)
