@@ -18,12 +18,13 @@ public class TemplateRenderService {
         self.pathToTemplates = pathToTemplates
     }
     
-    public func render(markdownContent: String) throws -> String {
+    public func render(markdownContent: String, frontMatter: FrontMatter) throws -> String {
         let siteConfig = try SiteConfig.shared.getSiteConfig()
         
-        let context = [
+        let context: [String: Any] = [
             "content": markdownContent,
-            "siteName": siteConfig.siteName
+            "siteName": siteConfig.siteName,
+            "frontMatter": frontMatter            
         ]
         
         let environment = Environment(loader: FileSystemLoader(paths: [Path(pathToTemplates)]))

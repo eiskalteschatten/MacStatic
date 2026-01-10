@@ -85,7 +85,7 @@ public class BuildService {
             // Render the templates with the parsed Markdown content
             
             let templateRenderService = TemplateRenderService(layout: frontMatter.layout, pathToTemplates: sourcePath)
-            let renderedContent = try templateRenderService.render(markdownContent: parsedMarkdown)
+            let renderedContent = try templateRenderService.render(markdownContent: parsedMarkdown, frontMatter: frontMatter)
             
             // Write the HTML content to file
             try renderedContent.write(toFile: outputFilePath, atomically: true, encoding: .utf8)
