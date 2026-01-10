@@ -9,16 +9,16 @@ import Foundation
 import Stencil
 import PathKit
 
-public class TemplateRenderService {
+class TemplateRenderService {
     private var layout: String
     private var pathToTemplates: String
     
-    public init(layout: String, pathToTemplates: String) {
+    init(layout: String, pathToTemplates: String) {
         self.layout = layout
         self.pathToTemplates = pathToTemplates
     }
     
-    public func render(markdownContent: String, frontMatter: FrontMatter) throws -> String {
+    func render(markdownContent: String, frontMatter: FrontMatter) throws -> String {
         let siteConfig = try SiteConfig.shared.getSiteConfig()
         
         let context: [String: Any] = [

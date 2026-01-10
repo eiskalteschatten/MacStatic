@@ -8,7 +8,12 @@
 import Foundation
 import Markdown
 
-public struct FrontMatter {
+enum MarkdownPageType: String {
+    case page = "page"
+    case post = "post"
+}
+
+struct FrontMatter {
     var title: String?
     var excerpt: String?
     var author: String?
@@ -17,12 +22,13 @@ public struct FrontMatter {
     var draft: Bool?
     var tags: [String]?
     var layout: String
+    var type: MarkdownPageType
 }
 
-public class MarkdownFile {
+class MarkdownFile {
     private var markdownFile: String
     
-    public var frontMatter = FrontMatter(layout: "default")
+    public var frontMatter = FrontMatter(layout: "default", type: .page)
     public var parsedContent: String?
     
     public init(_ markdownFile: String) {
@@ -92,6 +98,8 @@ public class MarkdownFile {
                 frontMatter.draft = value.lowercased() == "true"
             case "tags":
                 frontMatter.tags = value.components(separatedBy: ", ").map { $0.trimmingCharacters(in: .whitespaces) }
+            case "type":
+                frontMatter.type = MarkdownPageType(rawValue: value) ?? .page
             default:
                 break
             }
