@@ -89,7 +89,7 @@ public class BuildService {
             // Write the HTML content to file
             try renderedContent.write(toFile: outputFilePath, atomically: true, encoding: .utf8)
             
-            NSLog("Saved: \(fullPathToContent)/\(relativePath) -> \(outputFilePath)")
+            print("Saved: \(fullPathToContent)/\(relativePath) -> \(outputFilePath)")
         }
     }
     
