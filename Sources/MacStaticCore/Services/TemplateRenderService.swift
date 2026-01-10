@@ -18,7 +18,7 @@ class TemplateRenderService {
         self.pathToTemplates = pathToTemplates
     }
     
-    func render(markdownContent: String, frontMatter: FrontMatter, posts: [PostMeta]? = nil) throws -> String {
+    func render(markdownContent: String, frontMatter: FrontMatter, posts: [PostMeta] = []) throws -> String {
         let siteConfig = try SiteConfig.shared.getSiteConfig()
         
         let context: [String: Any] = [
@@ -26,7 +26,7 @@ class TemplateRenderService {
             "siteName": siteConfig.siteName,
             "lang": siteConfig.lang,
             "frontMatter": frontMatter,
-            "posts": posts as Any
+            "posts": posts
         ]
         
         let environment = Environment(loader: FileSystemLoader(paths: [Path(pathToTemplates)]))
