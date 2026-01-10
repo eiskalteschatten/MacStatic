@@ -7,8 +7,8 @@
 
 import Foundation
 
-public class ProjectService {   
-    public func createNewProject(name: String, at directory: String) -> String {
+class ProjectService {
+    func createNewProject(name: String, at directory: String) -> String {
         let atDirectoryURL = URL(fileURLWithPath: "\(directory)/\(name)")
         let fileManager = FileManager.default
         

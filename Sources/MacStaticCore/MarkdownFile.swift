@@ -28,14 +28,14 @@ struct FrontMatter {
 class MarkdownFile {
     private var markdownFile: String
     
-    public var frontMatter = FrontMatter(layout: "default", type: .page)
-    public var parsedContent: String?
+    var frontMatter = FrontMatter(layout: "default", type: .page)
+    var parsedContent: String?
     
-    public init(_ markdownFile: String) {
+    init(_ markdownFile: String) {
         self.markdownFile = markdownFile
     }
         
-    public func parse() throws -> String? {
+    func parse() throws -> String? {
         let fileContent = try String(contentsOfFile: markdownFile, encoding: .utf8)
         setFrontMatter(fileContent)
         let markdownContent = parseMarkdownContent(fileContent)

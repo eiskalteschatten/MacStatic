@@ -26,7 +26,7 @@ final class SiteConfig: @unchecked Sendable {
     
     private init() {}
     
-    public func loadSiteConfig(sourcePath: String) throws {
+    func loadSiteConfig(sourcePath: String) throws {
         if config != nil {
             return
         }
@@ -49,7 +49,7 @@ final class SiteConfig: @unchecked Sendable {
         }
     }
     
-    public func getSiteConfig() throws -> SiteConfigProperties {
+    func getSiteConfig() throws -> SiteConfigProperties {
         guard let config = config else {
             throw SiteConfigError.configNotLoaded
         }
