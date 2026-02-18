@@ -1039,7 +1039,7 @@
 				935326AD2F4654B400699DCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		935327462F46550B00699DCA /* Build configuration list for PBXNativeTarget "MacStatic" */ = {
 			isa = XCConfigurationList;
@@ -1048,7 +1048,7 @@
 				935327482F46550B00699DCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		935327492F46550B00699DCA /* Build configuration list for PBXNativeTarget "MacStaticTests" */ = {
 			isa = XCConfigurationList;
@@ -1057,7 +1057,7 @@
 				9353274B2F46550B00699DCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		9353274C2F46550B00699DCA /* Build configuration list for PBXNativeTarget "MacStaticUITests" */ = {
 			isa = XCConfigurationList;
@@ -1066,7 +1066,7 @@
 				9353274E2F46550B00699DCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		935327B72F4658B900699DCA /* Build configuration list for PBXNativeTarget "MacStaticCLI" */ = {
 			isa = XCConfigurationList;
@@ -1075,7 +1075,7 @@
 				935327B92F4658B900699DCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 

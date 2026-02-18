@@ -10,7 +10,7 @@ let package = Package(
         .iOS(.v18)
     ],
     products: [
-        .library(name: "MacStaticCore", type: .dynamic, targets: ["MacStaticCore"]),
+        .library(name: "MacStaticCore", type: .static, targets: ["MacStaticCore"]),
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
