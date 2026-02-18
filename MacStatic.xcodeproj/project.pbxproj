@@ -86,14 +86,14 @@
 			path = MacStaticGUI;
 			sourceTree = "<group>";
 		};
-		935328082F465A9500699DCA /* Modules */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Modules;
-			sourceTree = "<group>";
-		};
 		935328342F465AEE00699DCA /* Tests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		9353287C2F465BC700699DCA /* Modules */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -141,7 +141,7 @@
 				935326BB2F4654DA00699DCA /* README.md */,
 				935327B42F4658B900699DCA /* MacStaticCLI */,
 				935327DB2F465A9000699DCA /* MacStaticGUI */,
-				935328082F465A9500699DCA /* Modules */,
+				9353287C2F465BC700699DCA /* Modules */,
 				935328342F465AEE00699DCA /* Tests */,
 				935327BC2F4658BF00699DCA /* Frameworks */,
 				935327282F46550700699DCA /* Products */,
