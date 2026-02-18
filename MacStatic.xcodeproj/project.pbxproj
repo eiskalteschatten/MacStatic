@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9337CD702F46620800F04EDB /* MacStaticCore in Frameworks */ = {isa = PBXBuildFile; productRef = 9337CD6F2F46620800F04EDB /* MacStaticCore */; };
 		9340D6C72F465DC000D38934 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 9340D6C62F465DBF00D38934 /* ArgumentParser */; };
-		935327832F46580700699DCA /* MacStaticCore in Frameworks */ = {isa = PBXBuildFile; productRef = 935327822F46580700699DCA /* MacStaticCore */; };
-		935327AD2F46582E00699DCA /* MacStaticCore in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 935327822F46580700699DCA /* MacStaticCore */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		935327BE2F4658BF00699DCA /* MacStaticCore in Frameworks */ = {isa = PBXBuildFile; productRef = 935327BD2F4658BF00699DCA /* MacStaticCore */; };
 		935327BF2F4658BF00699DCA /* MacStaticCore in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 935327BD2F4658BF00699DCA /* MacStaticCore */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		935327C82F4659D500699DCA /* generate-docc-reference in Frameworks */ = {isa = PBXBuildFile; productRef = 935327C72F4659D500699DCA /* generate-docc-reference */; };
@@ -40,7 +39,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				935327AD2F46582E00699DCA /* MacStaticCore in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				935327832F46580700699DCA /* MacStaticCore in Frameworks */,
+				9337CD702F46620800F04EDB /* MacStaticCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,7 +185,7 @@
 			);
 			name = MacStatic;
 			packageProductDependencies = (
-				935327822F46580700699DCA /* MacStaticCore */,
+				9337CD6F2F46620800F04EDB /* MacStaticCore */,
 			);
 			productName = MacStatic;
 			productReference = 935327272F46550700699DCA /* MacStatic.app */;
@@ -1100,14 +1098,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9337CD6F2F46620800F04EDB /* MacStaticCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MacStaticCore;
+		};
 		9340D6C62F465DBF00D38934 /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 935327C42F4659D500699DCA /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
 			productName = ArgumentParser;
-		};
-		935327822F46580700699DCA /* MacStaticCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MacStaticCore;
 		};
 		935327BD2F4658BF00699DCA /* MacStaticCore */ = {
 			isa = XCSwiftPackageProductDependency;
