@@ -7,19 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9353275A2F46559E00699DCA /* MacStaticGUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935327582F46559E00699DCA /* MacStaticGUIApp.swift */; };
-		9353275B2F46559E00699DCA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935327572F46559E00699DCA /* ContentView.swift */; };
-		9353275C2F46559E00699DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 935327562F46559E00699DCA /* Assets.xcassets */; };
-		9353275D2F46559E00699DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 935327562F46559E00699DCA /* Assets.xcassets */; };
-		9353275E2F46559E00699DCA /* MacStaticGUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935327582F46559E00699DCA /* MacStaticGUIApp.swift */; };
-		9353275F2F46559E00699DCA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935327572F46559E00699DCA /* ContentView.swift */; };
-		935327602F46559E00699DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 935327562F46559E00699DCA /* Assets.xcassets */; };
-		935327612F46559E00699DCA /* MacStaticGUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935327582F46559E00699DCA /* MacStaticGUIApp.swift */; };
-		935327622F46559E00699DCA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935327572F46559E00699DCA /* ContentView.swift */; };
 		935327832F46580700699DCA /* MacStaticCore in Frameworks */ = {isa = PBXBuildFile; productRef = 935327822F46580700699DCA /* MacStaticCore */; };
 		935327AD2F46582E00699DCA /* MacStaticCore in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 935327822F46580700699DCA /* MacStaticCore */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		935327BE2F4658BF00699DCA /* MacStaticCore in Frameworks */ = {isa = PBXBuildFile; productRef = 935327BD2F4658BF00699DCA /* MacStaticCore */; };
 		935327BF2F4658BF00699DCA /* MacStaticCore in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 935327BD2F4658BF00699DCA /* MacStaticCore */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		935327C62F4659D500699DCA /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 935327C52F4659D500699DCA /* ArgumentParser */; };
+		935327C82F4659D500699DCA /* generate-docc-reference in Frameworks */ = {isa = PBXBuildFile; productRef = 935327C72F4659D500699DCA /* generate-docc-reference */; };
+		935327CA2F4659D500699DCA /* generate-manual in Frameworks */ = {isa = PBXBuildFile; productRef = 935327C92F4659D500699DCA /* generate-manual */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,62 +69,9 @@
 
 /* Begin PBXFileReference section */
 		935326BB2F4654DA00699DCA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		935326E02F4654DA00699DCA /* main.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
-		935326E22F4654DA00699DCA /* scripts.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = scripts.js; sourceTree = "<group>"; };
-		935326E52F4654DA00699DCA /* Example Draft Post.post.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Example Draft Post.post.md"; sourceTree = "<group>"; };
-		935326E62F4654DA00699DCA /* Example Post.post.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Example Post.post.md"; sourceTree = "<group>"; };
-		935326E82F4654DA00699DCA /* about.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = about.md; sourceTree = "<group>"; };
-		935326E92F4654DA00699DCA /* index.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = index.md; sourceTree = "<group>"; };
-		935326EB2F4654DA00699DCA /* main.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
-		935326ED2F4654DA00699DCA /* scripts.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = scripts.js; sourceTree = "<group>"; };
-		935326F02F4654DA00699DCA /* example-draft-post.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "example-draft-post.html"; sourceTree = "<group>"; };
-		935326F12F4654DA00699DCA /* example-post.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "example-post.html"; sourceTree = "<group>"; };
-		935326F32F4654DA00699DCA /* example-draft-post.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "example-draft-post.html"; sourceTree = "<group>"; };
-		935326F42F4654DA00699DCA /* example-post.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "example-post.html"; sourceTree = "<group>"; };
-		935326F62F4654DA00699DCA /* about.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
-		935326F72F4654DA00699DCA /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		935326F92F4654DA00699DCA /* about.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
-		935326FA2F4654DA00699DCA /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		935326FC2F4654DA00699DCA /* default.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = default.html; sourceTree = "<group>"; };
-		935326FE2F4654DA00699DCA /* footer.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = footer.html; sourceTree = "<group>"; };
-		935326FF2F4654DA00699DCA /* header.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = header.html; sourceTree = "<group>"; };
-		935327002F4654DA00699DCA /* post_list.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = post_list.html; sourceTree = "<group>"; };
-		935327012F4654DA00699DCA /* post_tile_basic.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = post_tile_basic.html; sourceTree = "<group>"; };
-		935327022F4654DA00699DCA /* post_tile_image.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = post_tile_image.html; sourceTree = "<group>"; };
-		935327032F4654DA00699DCA /* post_tile_text.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = post_tile_text.html; sourceTree = "<group>"; };
-		935327052F4654DA00699DCA /* README.MD */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.MD; sourceTree = "<group>"; };
-		935327062F4654DA00699DCA /* siteconfig.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = siteconfig.json; sourceTree = "<group>"; };
-		935327092F4654DA00699DCA /* MacStaticCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacStaticCoreTests.swift; sourceTree = "<group>"; };
 		935327272F46550700699DCA /* MacStatic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacStatic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		935327342F46550B00699DCA /* MacStaticTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacStaticTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9353273E2F46550B00699DCA /* MacStaticUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacStaticUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		935327562F46559E00699DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		935327572F46559E00699DCA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		935327582F46559E00699DCA /* MacStaticGUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacStaticGUIApp.swift; sourceTree = "<group>"; };
-		9353278A2F46581E00699DCA /* main.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
-		9353278C2F46581E00699DCA /* scripts.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = scripts.js; sourceTree = "<group>"; };
-		9353278F2F46581E00699DCA /* Example Draft Post.post.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Example Draft Post.post.md"; sourceTree = "<group>"; };
-		935327902F46581E00699DCA /* Example Post.post.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Example Post.post.md"; sourceTree = "<group>"; };
-		935327922F46581E00699DCA /* about.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = about.md; sourceTree = "<group>"; };
-		935327932F46581E00699DCA /* index.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = index.md; sourceTree = "<group>"; };
-		935327952F46581E00699DCA /* default.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = default.html; sourceTree = "<group>"; };
-		935327972F46581E00699DCA /* footer.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = footer.html; sourceTree = "<group>"; };
-		935327982F46581E00699DCA /* header.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = header.html; sourceTree = "<group>"; };
-		935327992F46581E00699DCA /* post_list.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = post_list.html; sourceTree = "<group>"; };
-		9353279A2F46581E00699DCA /* post_tile_basic.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = post_tile_basic.html; sourceTree = "<group>"; };
-		9353279B2F46581E00699DCA /* post_tile_image.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = post_tile_image.html; sourceTree = "<group>"; };
-		9353279C2F46581E00699DCA /* post_tile_text.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = post_tile_text.html; sourceTree = "<group>"; };
-		9353279E2F46581E00699DCA /* README.MD */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.MD; sourceTree = "<group>"; };
-		9353279F2F46581E00699DCA /* siteconfig.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = siteconfig.json; sourceTree = "<group>"; };
-		935327A12F46581E00699DCA /* BuildService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildService.swift; sourceTree = "<group>"; };
-		935327A22F46581E00699DCA /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
-		935327A32F46581E00699DCA /* ProjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectService.swift; sourceTree = "<group>"; };
-		935327A42F46581E00699DCA /* TemplateRenderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateRenderService.swift; sourceTree = "<group>"; };
-		935327A62F46581E00699DCA /* MacStaticCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacStaticCore.swift; sourceTree = "<group>"; };
-		935327A72F46581E00699DCA /* MarkdownFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownFile.swift; sourceTree = "<group>"; };
-		935327A82F46581E00699DCA /* ProjectFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFiles.swift; sourceTree = "<group>"; };
-		935327A92F46581E00699DCA /* SiteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteConfig.swift; sourceTree = "<group>"; };
-		935327AB2F46581E00699DCA /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		935327B32F4658B900699DCA /* MacStaticCLI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MacStaticCLI; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -138,6 +79,21 @@
 		935327B42F4658B900699DCA /* MacStaticCLI */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = MacStaticCLI;
+			sourceTree = "<group>";
+		};
+		935327DB2F465A9000699DCA /* MacStaticGUI */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MacStaticGUI;
+			sourceTree = "<group>";
+		};
+		935328082F465A9500699DCA /* Modules */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		935328342F465AEE00699DCA /* Tests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -169,7 +125,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				935327C62F4659D500699DCA /* ArgumentParser in Frameworks */,
+				935327CA2F4659D500699DCA /* generate-manual in Frameworks */,
 				935327BE2F4658BF00699DCA /* MacStaticCore in Frameworks */,
+				935327C82F4659D500699DCA /* generate-docc-reference in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,190 +139,13 @@
 			isa = PBXGroup;
 			children = (
 				935326BB2F4654DA00699DCA /* README.md */,
-				935327592F46559E00699DCA /* MacStaticGUI */,
 				935327B42F4658B900699DCA /* MacStaticCLI */,
-				935326DF2F4654DA00699DCA /* Modules */,
-				935327072F4654DA00699DCA /* TestProject */,
-				9353270B2F4654DA00699DCA /* Tests */,
+				935327DB2F465A9000699DCA /* MacStaticGUI */,
+				935328082F465A9500699DCA /* Modules */,
+				935328342F465AEE00699DCA /* Tests */,
 				935327BC2F4658BF00699DCA /* Frameworks */,
 				935327282F46550700699DCA /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		935326DF2F4654DA00699DCA /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-				935327AC2F46581E00699DCA /* MacStaticCore */,
-			);
-			path = Modules;
-			sourceTree = "<group>";
-		};
-		935326E12F4654DA00699DCA /* css */ = {
-			isa = PBXGroup;
-			children = (
-				935326E02F4654DA00699DCA /* main.css */,
-			);
-			path = css;
-			sourceTree = "<group>";
-		};
-		935326E32F4654DA00699DCA /* js */ = {
-			isa = PBXGroup;
-			children = (
-				935326E22F4654DA00699DCA /* scripts.js */,
-			);
-			path = js;
-			sourceTree = "<group>";
-		};
-		935326E42F4654DA00699DCA /* assets */ = {
-			isa = PBXGroup;
-			children = (
-				935326E12F4654DA00699DCA /* css */,
-				935326E32F4654DA00699DCA /* js */,
-			);
-			path = assets;
-			sourceTree = "<group>";
-		};
-		935326E72F4654DA00699DCA /* blog */ = {
-			isa = PBXGroup;
-			children = (
-				935326E52F4654DA00699DCA /* Example Draft Post.post.md */,
-				935326E62F4654DA00699DCA /* Example Post.post.md */,
-			);
-			path = blog;
-			sourceTree = "<group>";
-		};
-		935326EA2F4654DA00699DCA /* content */ = {
-			isa = PBXGroup;
-			children = (
-				935326E72F4654DA00699DCA /* blog */,
-				935326E82F4654DA00699DCA /* about.md */,
-				935326E92F4654DA00699DCA /* index.md */,
-			);
-			path = content;
-			sourceTree = "<group>";
-		};
-		935326EC2F4654DA00699DCA /* css */ = {
-			isa = PBXGroup;
-			children = (
-				935326EB2F4654DA00699DCA /* main.css */,
-			);
-			path = css;
-			sourceTree = "<group>";
-		};
-		935326EE2F4654DA00699DCA /* js */ = {
-			isa = PBXGroup;
-			children = (
-				935326ED2F4654DA00699DCA /* scripts.js */,
-			);
-			path = js;
-			sourceTree = "<group>";
-		};
-		935326EF2F4654DA00699DCA /* assets */ = {
-			isa = PBXGroup;
-			children = (
-				935326EC2F4654DA00699DCA /* css */,
-				935326EE2F4654DA00699DCA /* js */,
-			);
-			path = assets;
-			sourceTree = "<group>";
-		};
-		935326F22F4654DA00699DCA /* blog */ = {
-			isa = PBXGroup;
-			children = (
-				935326F02F4654DA00699DCA /* example-draft-post.html */,
-				935326F12F4654DA00699DCA /* example-post.html */,
-			);
-			path = blog;
-			sourceTree = "<group>";
-		};
-		935326F52F4654DA00699DCA /* blog */ = {
-			isa = PBXGroup;
-			children = (
-				935326F32F4654DA00699DCA /* example-draft-post.html */,
-				935326F42F4654DA00699DCA /* example-post.html */,
-			);
-			path = blog;
-			sourceTree = "<group>";
-		};
-		935326F82F4654DA00699DCA /* content */ = {
-			isa = PBXGroup;
-			children = (
-				935326F52F4654DA00699DCA /* blog */,
-				935326F62F4654DA00699DCA /* about.html */,
-				935326F72F4654DA00699DCA /* index.html */,
-			);
-			path = content;
-			sourceTree = "<group>";
-		};
-		935326FB2F4654DA00699DCA /* dist */ = {
-			isa = PBXGroup;
-			children = (
-				935326EF2F4654DA00699DCA /* assets */,
-				935326F22F4654DA00699DCA /* blog */,
-				935326F82F4654DA00699DCA /* content */,
-				935326F92F4654DA00699DCA /* about.html */,
-				935326FA2F4654DA00699DCA /* index.html */,
-			);
-			path = dist;
-			sourceTree = "<group>";
-		};
-		935326FD2F4654DA00699DCA /* layouts */ = {
-			isa = PBXGroup;
-			children = (
-				935326FC2F4654DA00699DCA /* default.html */,
-			);
-			path = layouts;
-			sourceTree = "<group>";
-		};
-		935327042F4654DA00699DCA /* templates */ = {
-			isa = PBXGroup;
-			children = (
-				935326FE2F4654DA00699DCA /* footer.html */,
-				935326FF2F4654DA00699DCA /* header.html */,
-				935327002F4654DA00699DCA /* post_list.html */,
-				935327012F4654DA00699DCA /* post_tile_basic.html */,
-				935327022F4654DA00699DCA /* post_tile_image.html */,
-				935327032F4654DA00699DCA /* post_tile_text.html */,
-			);
-			path = templates;
-			sourceTree = "<group>";
-		};
-		935327072F4654DA00699DCA /* TestProject */ = {
-			isa = PBXGroup;
-			children = (
-				935326E42F4654DA00699DCA /* assets */,
-				935326EA2F4654DA00699DCA /* content */,
-				935326FB2F4654DA00699DCA /* dist */,
-				935326FD2F4654DA00699DCA /* layouts */,
-				935327042F4654DA00699DCA /* templates */,
-				935327052F4654DA00699DCA /* README.MD */,
-				935327062F4654DA00699DCA /* siteconfig.json */,
-			);
-			path = TestProject;
-			sourceTree = "<group>";
-		};
-		935327082F4654DA00699DCA /* MacStaticCLITests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MacStaticCLITests;
-			sourceTree = "<group>";
-		};
-		9353270A2F4654DA00699DCA /* MacStaticCoreTests */ = {
-			isa = PBXGroup;
-			children = (
-				935327092F4654DA00699DCA /* MacStaticCoreTests.swift */,
-			);
-			path = MacStaticCoreTests;
-			sourceTree = "<group>";
-		};
-		9353270B2F4654DA00699DCA /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				935327082F4654DA00699DCA /* MacStaticCLITests */,
-				9353270A2F4654DA00699DCA /* MacStaticCoreTests */,
-			);
-			path = Tests;
 			sourceTree = "<group>";
 		};
 		935327282F46550700699DCA /* Products */ = {
@@ -375,127 +157,6 @@
 				935327B32F4658B900699DCA /* MacStaticCLI */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		935327592F46559E00699DCA /* MacStaticGUI */ = {
-			isa = PBXGroup;
-			children = (
-				935327562F46559E00699DCA /* Assets.xcassets */,
-				935327572F46559E00699DCA /* ContentView.swift */,
-				935327582F46559E00699DCA /* MacStaticGUIApp.swift */,
-			);
-			path = MacStaticGUI;
-			sourceTree = "<group>";
-		};
-		9353278B2F46581E00699DCA /* css */ = {
-			isa = PBXGroup;
-			children = (
-				9353278A2F46581E00699DCA /* main.css */,
-			);
-			path = css;
-			sourceTree = "<group>";
-		};
-		9353278D2F46581E00699DCA /* js */ = {
-			isa = PBXGroup;
-			children = (
-				9353278C2F46581E00699DCA /* scripts.js */,
-			);
-			path = js;
-			sourceTree = "<group>";
-		};
-		9353278E2F46581E00699DCA /* assets */ = {
-			isa = PBXGroup;
-			children = (
-				9353278B2F46581E00699DCA /* css */,
-				9353278D2F46581E00699DCA /* js */,
-			);
-			path = assets;
-			sourceTree = "<group>";
-		};
-		935327912F46581E00699DCA /* blog */ = {
-			isa = PBXGroup;
-			children = (
-				9353278F2F46581E00699DCA /* Example Draft Post.post.md */,
-				935327902F46581E00699DCA /* Example Post.post.md */,
-			);
-			path = blog;
-			sourceTree = "<group>";
-		};
-		935327942F46581E00699DCA /* content */ = {
-			isa = PBXGroup;
-			children = (
-				935327912F46581E00699DCA /* blog */,
-				935327922F46581E00699DCA /* about.md */,
-				935327932F46581E00699DCA /* index.md */,
-			);
-			path = content;
-			sourceTree = "<group>";
-		};
-		935327962F46581E00699DCA /* layouts */ = {
-			isa = PBXGroup;
-			children = (
-				935327952F46581E00699DCA /* default.html */,
-			);
-			path = layouts;
-			sourceTree = "<group>";
-		};
-		9353279D2F46581E00699DCA /* templates */ = {
-			isa = PBXGroup;
-			children = (
-				935327972F46581E00699DCA /* footer.html */,
-				935327982F46581E00699DCA /* header.html */,
-				935327992F46581E00699DCA /* post_list.html */,
-				9353279A2F46581E00699DCA /* post_tile_basic.html */,
-				9353279B2F46581E00699DCA /* post_tile_image.html */,
-				9353279C2F46581E00699DCA /* post_tile_text.html */,
-			);
-			path = templates;
-			sourceTree = "<group>";
-		};
-		935327A02F46581E00699DCA /* NewProjectFiles */ = {
-			isa = PBXGroup;
-			children = (
-				9353278E2F46581E00699DCA /* assets */,
-				935327942F46581E00699DCA /* content */,
-				935327962F46581E00699DCA /* layouts */,
-				9353279D2F46581E00699DCA /* templates */,
-				9353279E2F46581E00699DCA /* README.MD */,
-				9353279F2F46581E00699DCA /* siteconfig.json */,
-			);
-			path = NewProjectFiles;
-			sourceTree = "<group>";
-		};
-		935327A52F46581E00699DCA /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				935327A12F46581E00699DCA /* BuildService.swift */,
-				935327A22F46581E00699DCA /* PostService.swift */,
-				935327A32F46581E00699DCA /* ProjectService.swift */,
-				935327A42F46581E00699DCA /* TemplateRenderService.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		935327AA2F46581E00699DCA /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				935327A02F46581E00699DCA /* NewProjectFiles */,
-				935327A52F46581E00699DCA /* Services */,
-				935327A62F46581E00699DCA /* MacStaticCore.swift */,
-				935327A72F46581E00699DCA /* MarkdownFile.swift */,
-				935327A82F46581E00699DCA /* ProjectFiles.swift */,
-				935327A92F46581E00699DCA /* SiteConfig.swift */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		935327AC2F46581E00699DCA /* MacStaticCore */ = {
-			isa = PBXGroup;
-			children = (
-				935327AA2F46581E00699DCA /* Sources */,
-				935327AB2F46581E00699DCA /* Package.swift */,
-			);
-			path = MacStaticCore;
 			sourceTree = "<group>";
 		};
 		935327BC2F4658BF00699DCA /* Frameworks */ = {
@@ -521,6 +182,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				935327DB2F465A9000699DCA /* MacStaticGUI */,
+			);
 			name = MacStatic;
 			packageProductDependencies = (
 				935327822F46580700699DCA /* MacStaticCore */,
@@ -542,6 +206,9 @@
 			dependencies = (
 				935327362F46550B00699DCA /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+				935327DB2F465A9000699DCA /* MacStaticGUI */,
+			);
 			name = MacStaticTests;
 			packageProductDependencies = (
 			);
@@ -561,6 +228,9 @@
 			);
 			dependencies = (
 				935327402F46550B00699DCA /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				935327DB2F465A9000699DCA /* MacStaticGUI */,
 			);
 			name = MacStaticUITests;
 			packageProductDependencies = (
@@ -588,6 +258,9 @@
 			name = MacStaticCLI;
 			packageProductDependencies = (
 				935327BD2F4658BF00699DCA /* MacStaticCore */,
+				935327C52F4659D500699DCA /* ArgumentParser */,
+				935327C72F4659D500699DCA /* generate-docc-reference */,
+				935327C92F4659D500699DCA /* generate-manual */,
 			);
 			productName = MacStaticCLI;
 			productReference = 935327B32F4658B900699DCA /* MacStaticCLI */;
@@ -630,6 +303,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				935327812F46580700699DCA /* XCLocalSwiftPackageReference "Modules/MacStaticCore" */,
+				935327C42F4659D500699DCA /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 935327282F46550700699DCA /* Products */;
@@ -649,7 +323,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9353275C2F46559E00699DCA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,7 +330,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9353275D2F46559E00699DCA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,7 +337,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				935327602F46559E00699DCA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,8 +347,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9353275A2F46559E00699DCA /* MacStaticGUIApp.swift in Sources */,
-				9353275B2F46559E00699DCA /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,8 +354,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9353275E2F46559E00699DCA /* MacStaticGUIApp.swift in Sources */,
-				9353275F2F46559E00699DCA /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,8 +361,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				935327612F46559E00699DCA /* MacStaticGUIApp.swift in Sources */,
-				935327622F46559E00699DCA /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1421,6 +1086,17 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		935327C42F4659D500699DCA /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		935327822F46580700699DCA /* MacStaticCore */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1430,6 +1106,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 935327812F46580700699DCA /* XCLocalSwiftPackageReference "Modules/MacStaticCore" */;
 			productName = MacStaticCore;
+		};
+		935327C52F4659D500699DCA /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 935327C42F4659D500699DCA /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+		935327C72F4659D500699DCA /* generate-docc-reference */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 935327C42F4659D500699DCA /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = "generate-docc-reference";
+		};
+		935327C92F4659D500699DCA /* generate-manual */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 935327C42F4659D500699DCA /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = "generate-manual";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
