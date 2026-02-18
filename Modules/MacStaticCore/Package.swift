@@ -4,18 +4,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "MacStatic",
+    name: "MacStaticCore",
     platforms: [
         .macOS(.v15),
         .iOS(.v18)
     ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(name: "MacStaticCore", targets: ["MacStaticCore"]),
-        .executable(name: "MacStaticCLI", targets: ["MacStaticCLI"])
+        .library(name: "MacStaticCore", type: .static, targets: ["MacStaticCore"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-markdown", from: "0.6.0"),
         .package(url: "https://github.com/stencilproject/Stencil.git", from: "0.15.1")
     ],
@@ -31,17 +28,6 @@ let package = Package(
             resources: [
                 .copy("NewProjectFiles")
             ]
-        ),
-        .executableTarget(
-            name: "MacStaticCLI",
-            dependencies: [
-                "MacStaticCore",
-                .product(name: "ArgumentParser", package: "swift-argument-parser")
-            ]
-        ),
-        .testTarget(
-            name: "MacStaticCoreTests",
-            dependencies: ["MacStaticCore"]
         ),
     ]
 )

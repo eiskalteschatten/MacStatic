@@ -44,4 +44,4 @@ struct New: ParsableCommand {
         print(result)
     }
 }
-    
+

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "2600"
+   LastUpgradeVersion = "2620"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,10 +15,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "MacStaticCLI"
+               BlueprintIdentifier = "935327B22F4658B900699DCA"
                BuildableName = "MacStaticCLI"
                BlueprintName = "MacStaticCLI"
-               ReferencedContainer = "container:">
+               ReferencedContainer = "container:MacStatic.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -39,20 +39,21 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "YES">
+      allowLocationSimulation = "YES"
+      viewDebuggingEnabled = "No">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "MacStaticCLI"
+            BlueprintIdentifier = "935327B22F4658B900699DCA"
             BuildableName = "MacStaticCLI"
             BlueprintName = "MacStaticCLI"
-            ReferencedContainer = "container:">
+            ReferencedContainer = "container:MacStatic.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "build"
+            argument = "new TestProject"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
@@ -67,10 +68,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "MacStaticCLI"
+            BlueprintIdentifier = "935327B22F4658B900699DCA"
             BuildableName = "MacStaticCLI"
             BlueprintName = "MacStaticCLI"
-            ReferencedContainer = "container:">
+            ReferencedContainer = "container:MacStatic.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
