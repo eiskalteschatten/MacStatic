@@ -76,14 +76,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		935327B42F4658B900699DCA /* MacStaticCLI */ = {
+		935327B42F4658B900699DCA /* CLI */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MacStaticCLI;
+			path = CLI;
 			sourceTree = "<group>";
 		};
-		935327DB2F465A9000699DCA /* MacStaticGUI */ = {
+		935327DB2F465A9000699DCA /* GUI */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MacStaticGUI;
+			path = GUI;
 			sourceTree = "<group>";
 		};
 		935328342F465AEE00699DCA /* Tests */ = {
@@ -139,8 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				935326BB2F4654DA00699DCA /* README.md */,
-				935327B42F4658B900699DCA /* MacStaticCLI */,
-				935327DB2F465A9000699DCA /* MacStaticGUI */,
+				935327B42F4658B900699DCA /* CLI */,
+				935327DB2F465A9000699DCA /* GUI */,
 				9353287C2F465BC700699DCA /* Modules */,
 				935328342F465AEE00699DCA /* Tests */,
 				935327BC2F4658BF00699DCA /* Frameworks */,
@@ -183,7 +183,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				935327DB2F465A9000699DCA /* MacStaticGUI */,
+				935327DB2F465A9000699DCA /* GUI */,
 			);
 			name = MacStatic;
 			packageProductDependencies = (
@@ -207,7 +207,7 @@
 				935327362F46550B00699DCA /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				935327DB2F465A9000699DCA /* MacStaticGUI */,
+				935327DB2F465A9000699DCA /* GUI */,
 			);
 			name = MacStaticTests;
 			packageProductDependencies = (
@@ -230,7 +230,7 @@
 				935327402F46550B00699DCA /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				935327DB2F465A9000699DCA /* MacStaticGUI */,
+				935327DB2F465A9000699DCA /* GUI */,
 			);
 			name = MacStaticUITests;
 			packageProductDependencies = (
@@ -253,7 +253,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				935327B42F4658B900699DCA /* MacStaticCLI */,
+				935327B42F4658B900699DCA /* CLI */,
 			);
 			name = MacStaticCLI;
 			packageProductDependencies = (
